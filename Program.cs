@@ -26,7 +26,7 @@ class Lab1
         return (a != 0 && b % a == 0) || (b != 0 && a % b == 0);
     }
 
-    public static int LastNumSum(int a, int b)
+    public int LastNumSum(int a, int b)
     {
         // Получаем последнюю цифру каждого числа
         int lastDigitA = a % 10;
@@ -36,7 +36,7 @@ class Lab1
         return lastDigitA + lastDigitB;
     }
 
-    public static int SumFiveNumbers(int[] numbers)
+    public int SumFiveNumbers(int[] numbers)
     {
         // Проверяем, что массив содержит ровно 5 чисел
         if (numbers.Length != 5) throw new ArgumentException("Массив должен содержать ровно 5 чисел.");
@@ -65,7 +65,7 @@ class Lab1
 
     }
 
-    public static string MakeDecision(int x, int y)
+    public string MakeDecision(int x, int y)
     {
         // Сравниваем числа и формируем строку с результатом
         if (x > y)
@@ -82,13 +82,13 @@ class Lab1
         }
     }
 
-    public static bool Sum3(int x, int y, int z)
+    public bool Sum3(int x, int y, int z)
     {
         // Проверяем все возможные комбинации
         return (x + y == z) || (x + z == y) || (y + z == x);
     }
 
-    public static string Age(int x)
+    public string Age(int x)
     {
         string suffix;
 
@@ -381,6 +381,7 @@ class Lab1
     public static void Main(string[] args)
     {
         Lab1 lab = new Lab1();
+
         bool exit = false;
 
         while (!exit)
@@ -450,13 +451,14 @@ class Lab1
                     Console.WriteLine(lab.IsDivisor(a, b));
                     break;
                 case 5:
+                    Lab1 SumFiveNumbers = new Lab1();
                     Console.WriteLine("Последовательно введите 5 чисел:");
                     int[] numbers = new int[5];
                     for (int i = 0; i < 5; i++)
                     {
                         numbers[i] = GetIntInput();
                     }
-                    Console.WriteLine($"Сумма: {SumFiveNumbers(numbers)}");
+                    Console.WriteLine($"Сумма: {lab.SumFiveNumbers(numbers)}");
                     break;
                 case 6:
                     Console.WriteLine("Введите отдельно делимое и делитель:");
@@ -465,22 +467,25 @@ class Lab1
                     Console.WriteLine($"Результат деления: {lab.SafeDiv(dividend, divisor)}");
                     break;
                 case 7:
+                    Lab1 MakeDecision = new Lab1();
                     Console.WriteLine("Введите первое и второе число:");
                     int x1 = GetIntInput();
                     int y1 = GetIntInput();
-                    Console.WriteLine(MakeDecision(x1, y1));
+                    Console.WriteLine(lab.MakeDecision(x1, y1));
                     break;
                 case 8:
+                    Lab1 Sum3 = new Lab1();
                     Console.WriteLine("Введите три числа:");
                     int x2 = GetIntInput();
                     int y2 = GetIntInput();
                     int z = GetIntInput();
-                    Console.WriteLine(Sum3(x2, y2, z));
+                    Console.WriteLine(lab.Sum3(x2, y2, z));
                     break;
                 case 9:
+                    Lab1 Age = new Lab1();
                     Console.WriteLine("Введите возраст:");
                     int age = GetIntInput();
-                    Console.WriteLine(Age(age));
+                    Console.WriteLine(lab.Age(age));
                     break;
                 case 10:
                     Console.WriteLine("Введите день недели:");
